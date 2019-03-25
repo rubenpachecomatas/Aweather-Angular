@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Ciudad" name="cityName" [(ngModel)]="cityName">
+    </mat-form-field>
+    <button mat-raised-button color="primary" [ngClass]="cityName !== '' ? 'active' : 'no-active'" (click)="searchCity($event)" >Buscar ciudad</button>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </mat-card-content>
+</mat-card>>

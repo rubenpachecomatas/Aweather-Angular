@@ -13,7 +13,7 @@ export class Weather {
     mintemperature: number;
     sunrise: string;
     sunset: string;
-    forecasts: Forecast;
+    forecasts: Array<Forecast>;
 
     get percentToSunset(): number {
         if (this.sunrise === undefined) {

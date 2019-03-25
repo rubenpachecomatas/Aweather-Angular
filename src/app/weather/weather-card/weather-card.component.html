@@ -1,7 +1,7 @@
 <mat-card class="weather-card">
   <mat-card-header class="weather-header">
     <div mat-card-avatar class="weather-header-icon">
-      <i class="wi wi-day-sunny"></i>
+      <app-weather-icon [weatherInfo]="weather.info"></app-weather-icon>
     </div>
     <mat-card-title>{{weather.city}}</mat-card-title>
     <mat-card-subtitle>{{weather.hourMessure}}</mat-card-subtitle>
@@ -15,26 +15,26 @@
           <i class="wi wi-wind from-{{weather.winddirection}}-deg"></i>
         </mat-grid-tile>
         <mat-grid-tile>
-          <i class="wi wi-humidity"></i> {{weather.humidity}} %</mat-grid-tile>
+          <i class="wi wi-humidity"></i> {{weather.humidity / 100 | percent:'2.0-2'}}</mat-grid-tile>
         <mat-grid-tile>
-          <i class="wi wi-barometer"></i> {{weather.pressure}}
+          <i class="wi wi-barometer"></i> {{weather.pressure | number:'4.1-2'}}
         </mat-grid-tile>
       </mat-grid-list>
     </div>
     <mat-grid-list cols="2" rowHeight="30px">
       <mat-grid-tile colspan="2" class="weather-info-text">
-        Soleado
+        {{weather.info | uppercase}}
       </mat-grid-tile>
       <mat-grid-tile class="weather-info-temp-up">
-        <i class="wi wi-direction-up"></i> {{weather.maxtemperature}} ºC
+        <i class="wi wi-direction-up"></i> {{weather.maxtemperature | celsius}}
       </mat-grid-tile>
       <mat-grid-tile class="weather-info-temp-down">
-        <i class="wi wi-direction-down"></i> {{weather.mintemperature}} ºC
+        <i class="wi wi-direction-down"></i> {{weather.mintemperature | celsius}}
       </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list cols="1" rowHeight="80px">
       <mat-grid-tile class="weather-info-temp">
-        <div class="number">{{weather.temperature}}</div>
+        <div class="number" [ngStyle]="{color: getColorTemperature()}">{{weather.temperature | celsius: false}}</div>
         <div class="measure">ºC</div>
       </mat-grid-tile>
     </mat-grid-list>
@@ -53,6 +53,6 @@
         <i class="wi wi-sunset"></i>
       </mat-grid-tile>
     </mat-grid-list>
-    <app-weather-forecast [forecast]="weather.forecasts"></app-weather-forecast>
+    <app-weather-forecast [forecasts]="weather.forecasts"></app-weather-forecast>
   </mat-card-content>
 </mat-card>

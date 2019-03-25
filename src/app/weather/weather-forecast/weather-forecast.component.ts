@@ -8,7 +8,7 @@ import { Forecast } from '../forecast.model';
 })
 export class WeatherForecastComponent {
 
-  @Input() forecast: Forecast;
+  @Input() forecasts: Array<Forecast>;
 
   constructor() { }
 

@@ -1,0 +1,12 @@
+<app-top-menu [sidenav]="sidenav"></app-top-menu>
+<mat-sidenav-container class="app-body">
+    <mat-sidenav #sidenav [mode]="sidebarMode" opened="true">
+        <app-left-menu></app-left-menu>
+    </mat-sidenav>
+    <div class="main">
+        <router-outlet></router-outlet>
+        <!--<app-weather-card></app-weather-card>
+        Componente padre, nombre ciudad {{cityName | slice:3-3}}
+        <app-weather-search (searchEvent)="search($event)"></app-weather-search>-->
+    </div>
+</mat-sidenav-container>
