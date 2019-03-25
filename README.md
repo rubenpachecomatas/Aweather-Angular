@@ -1,3 +1,7 @@
+# Breve descripción
+
+Se trata de una página web que muestra información sobre el tiempo en diferentes ciudades (o lo haría si la API no estuviese caída).
+
 # Aweather
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
